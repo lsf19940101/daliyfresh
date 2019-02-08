@@ -27,7 +27,7 @@ SECRET_KEY = 'f29utw+&i(%&*x14j#5le^nsx@(^%ufhai$e7v1k)-^(zthkny'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "dailyfresh",
+        'NAME': "test",
         'USER': 'root',
         "PASSWORD": "mysql",
         'HOST': "localhost",
@@ -169,3 +169,13 @@ SESSION_CACHE_ALIAS = "default"
 
 URL = "http://127.0.0.1:8000"
 LOGIN_URL = '/user/login'
+
+HOST_URL = '192.168.18.130:8000'
+
+# 设置Django的文件存储类
+DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
+
+# 设置fdfs使用的client.conf
+FDFS_CLIENT_CONF = 'utils.fdfs.client.conf'
+# nginx的IP和端口号
+FDFS_URL = 'http://127.0.0.1:8888/'
