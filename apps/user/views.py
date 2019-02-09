@@ -17,8 +17,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django_redis import get_redis_connection
 
-# Create your views here.
-
 
 class RegisterView(View):
     def get(self, request):
@@ -197,7 +195,8 @@ class UserInfoView(LoginRequiredMixin, View):
         address = Address.objects.get_default_address(user)
 
         con = get_redis_connection('default')
-        history_key = 'histery_%d' % user.id
+
+        history_key = 'history_%d' % user.id
 
         # 获取最新浏览的5个商品id
         sku_ids = con.lrange(history_key, 0, 4)
@@ -205,7 +204,7 @@ class UserInfoView(LoginRequiredMixin, View):
         goods_li = []
         for sku_id in sku_ids:
             goods_li.append(GoodsSKU.objects.get(id=sku_id))
-
+        print(goods_li)
         context = {
             'page': 'user',
             'address': address,

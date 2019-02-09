@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'order', # 订单模块
     'user', # 用户模块
     'goods', # 商品模块
+    'haystack', # 全文搜索框架
 ]
 
 MIDDLEWARE = [
@@ -179,3 +180,17 @@ DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
 FDFS_CLIENT_CONF = 'utils.fdfs.client.conf'
 # nginx的IP和端口号
 FDFS_URL = 'http://127.0.0.1:8888/'
+
+
+# 全文检索框架配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        #使用whoosh引擎
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        #索引文件路径
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+#当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

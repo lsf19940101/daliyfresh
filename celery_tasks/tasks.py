@@ -58,6 +58,7 @@ def generate_static_index_html():
         'types': types,
         'goods_banners': goods_banners,
         'promotion_banner': promotion_banner,
+        'cart_count':0,
     }
 
     # 使用模板

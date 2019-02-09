@@ -32,7 +32,7 @@
     <div class="slide fl">
         <ul class="slide_pics">
             {% for goodsbanner in goods_banners %}
-                <li><a href=""><img src="{{ goodsbanner.image.url }}" alt="幻灯片"></a></li>
+                <li><a href="{% url 'goods:detail' goodsbanner.sku.id %}"><img src="{{ goodsbanner.image.url }}" alt="幻灯片"></a></li>
             {% endfor %}
             
 
@@ -55,7 +55,7 @@
         <div class="subtitle fl">
             <span>|</span>
            {% for banner in type.title_banners %}
-                <a href="#">{{ banner.sku.name }}</a>
+                <a href="{% url 'goods:detail' banner.sku.id %}">{{ banner.sku.name }}</a>
            {% endfor %}
 
         </div>
@@ -67,8 +67,8 @@
         <ul class="goods_list fl">
             {% for banner in type.image_banners %}
                 <li>
-                    <h4><a href="#">{{ banner.sku.name }}</a></h4>
-                    <a href="#"><img src="{{ banner.sku.image.url }}"></a>
+                    <h4><a href="{% url 'goods:detail' banner.sku.id %}">{{ banner.sku.name }}</a></h4>
+                    <a href="{% url 'goods:detail' banner.sku.id %}"><img src="{{ banner.sku.image.url }}"></a>
                     <div class="prize">¥ {{ banner.sku.price }}</div>
                 </li>
             {% endfor %}
