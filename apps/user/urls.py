@@ -17,7 +17,7 @@ urlpatterns = [
     # path('address', login_required(UserAdressView.as_view()), name="address"),
     # path('', login_required(UserInfoView.as_view()), name="user"),
 
-    path('order', UserOrderView.as_view(), name="order"),
+    path('order/<int:page>', UserOrderView.as_view(), name="order"),
     path('address', UserAdressView.as_view(), name="address"),
     path('', UserInfoView.as_view(), name="user"),
 ]

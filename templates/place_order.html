@@ -112,7 +112,7 @@
 
                         setTimeout(function () {
                             $('.popup_con').fadeOut('fast', function () {
-                                window.location.href = 'index.html';
+                                window.location.href = '{% url 'user:order' 1 %}';
                             });
                         }, 3000)
 
