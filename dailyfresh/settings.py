@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = 'f29utw+&i(%&*x14j#5le^nsx@(^%ufhai$e7v1k)-^(zthkny'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
+STATIC_ROOT='/var/www/dailyfresh/static'
 # 富文本编辑器配置
 TINYMCE_DEFAULT_CONFIG = {
     'theme': 'advanced',
